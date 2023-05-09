@@ -1,0 +1,17 @@
+<div class="text-center mt-3 mb-3">
+  <form [formGroup]="form">
+    <input
+      class="rounded"
+      type="search"
+      placeholder="search..."
+      autofocus
+      formControlName="filter"
+      (keyup)="debounce.next(form.value)"
+    />
+  </form>
+</div>
+<app-photos
+  [photos]="photos | filterByDescription : this.form.value.filter"
+></app-photos>
+
+<app-load-button (click)="load()" [hasMore]="hasMore"></app-load-button>

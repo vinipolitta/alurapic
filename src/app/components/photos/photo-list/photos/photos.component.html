@@ -1,0 +1,14 @@
+<ol class="list-unstyled row" *ngIf="!photos.length; else filterPhotos">
+  <li *ngFor="let cols of rows" class="row">
+    <div class="col-4" *ngFor="let photo of cols">
+      <app-photo
+        [url]="photo.url"
+        [description]="photo.description"
+      ></app-photo>
+    </div>
+  </li>
+</ol>
+
+<ng-template #filterPhotos>
+  <p class="text-center text-muted">Sorry, no photos</p>
+</ng-template>
